@@ -20,3 +20,5 @@ import os
 license_file = os.path.join(os.getenv('HOME'), "licenses", "intel", "license.lic")
 
 m32 = True
+
+modextravars = {"I_MPI_MPD_RSH": "oarsh"}
