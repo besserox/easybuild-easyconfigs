@@ -18,6 +18,8 @@ dependencies = [
     ('hwloc', '1.8'),
 ]
 
+patches = ['openmpi-mca-params.conf-1.4.5-local.patch']
+
 configopts = '--with-threads=posix --enable-shared --enable-mpi-thread-multiple --with-openib '
 configopts += '--enable-mpirun-prefix-by-default '  # suppress failure modes in relation to mpirun path
 configopts += '--with-hwloc=$EBROOTHWLOC '  # hwloc support
