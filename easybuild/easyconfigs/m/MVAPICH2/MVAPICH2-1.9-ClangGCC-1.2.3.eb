@@ -12,3 +12,5 @@ sources = ['mvapich2-%s.tgz' % version]
 dependencies = [('Bison', '2.7')]
 
 moduleclass = 'mpi'
+
+modextravars = {"HYDRA_LAUNCHER_EXEC": "oarsh"}
