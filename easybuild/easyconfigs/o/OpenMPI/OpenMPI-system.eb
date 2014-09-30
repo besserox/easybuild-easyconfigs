@@ -8,9 +8,4 @@ description = """The Open MPI Project is an open source MPI-2 implementation."""
 
 toolchain = {'name': 'dummy', 'version': 'dummy'}
 
-modextravars = {
-    'MPICC'    : 'mpicc',
-    'MPICXX'   : 'mpicxx',
-}   
-
 moduleclass = 'mpi'

@@ -18,13 +18,4 @@ dependencies = [
     mpi,
 ]
 
-modextravars = {
-    'CC'       : 'gcc',
-    'CXX'      : 'g++',
-    'OMPI_CC'  : 'gcc',
-    'OMPI_CXX' : 'g++',
-    'MPICC'    : 'mpicc',
-    'MPICXX'   : 'mpicxx',
-}   
-
 moduleclass = 'toolchain'

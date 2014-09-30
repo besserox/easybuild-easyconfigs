@@ -11,10 +11,5 @@ toolchain = {'name': 'dummy', 'version': 'dummy'}
 
 languages = ['c', 'c++', 'fortran', 'lto']
 
-modextravars = {
-    'CC'       : 'gcc',
-    'CXX'      : 'g++',
-}   
-
 moduleclass = 'compiler'
 
