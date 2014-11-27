@@ -1,0 +1,23 @@
+easyblock = "Tarball"
+
+name = 'CPPLapack'
+version = '2014.02.08'
+
+homepage = 'http://cpplapack.sourceforge.net/'
+description = """CPPLapack is a c++ class wrapper for BLAS, LAPACK and PARDISO.
+Its special features are the followings.
+1. User-friendly interface
+2. Hi-speed matrix calculations using BLAS and LAPACK
+3. Minimized number of copy times using Smart Temporary system """
+
+toolchain = {'name': 'dummy', 'version': 'dummy'}
+
+sources = ['cpplapack-%s/cpplapack-%s-1.tar.gz' % (version, version)]
+source_urls = ['http://downloads.sourceforge.net/project/cpplapack/']
+
+sanity_check_paths = {
+    'files': ["include/cpplapack.h"], 
+    'dirs': ["include"]
+}
+
+moduleclass = 'devel'
