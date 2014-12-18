@@ -1,0 +1,30 @@
+diff -rupN openmpi-1.6.5/contrib/oarsh_with_ld_library_path.sh openmpi-1.6.5-uni.lu/contrib/oarsh_with_ld_library_path.sh
+--- openmpi-1.6.5/contrib/oarsh_with_ld_library_path.sh	1970-01-01 01:00:00.000000000 +0100
++++ openmpi-1.6.5-uni.lu/contrib/oarsh_with_ld_library_path.sh	2014-01-23 18:39:41.763698459 +0100
+@@ -0,0 +1,14 @@
++#!/bin/bash
++
++HOST=$1
++shift
++
++if [ $SHELL = "/bin/tcsh" ]
++then
++    exec oarsh $HOST "setenv LD_LIBRARY_PATH ${LD_LIBRARY_PATH}; setenv PATH ${PATH}; $@"
++else
++
++    exec oarsh $HOST "export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}; export PATH=${PATH}; $@"
++fi
++
++
+diff -rupN openmpi-1.6.5/opal/etc/openmpi-mca-params.conf openmpi-1.6.5-uni.lu/opal/etc/openmpi-mca-params.conf
+--- openmpi-1.6.5/opal/etc/openmpi-mca-params.conf	2012-04-03 16:29:51.000000000 +0200
++++ openmpi-1.6.5-uni.lu/opal/etc/openmpi-mca-params.conf	2014-01-23 18:45:08.385719986 +0100
+@@ -56,3 +56,8 @@
+ 
+ # See "ompi_info --param all all" for a full listing of Open MPI MCA
+ # parameters available and their default values.
++
++
++# Use oarsh wrapper to properly define environment variables required by orted
++orte_rsh_agent=oarsh_with_ld_library_path.sh
++

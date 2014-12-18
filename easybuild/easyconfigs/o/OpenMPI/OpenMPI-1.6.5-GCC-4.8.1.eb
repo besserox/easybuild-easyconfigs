@@ -10,7 +10,7 @@ sources = [SOURCELOWER_TAR_GZ]
 source_urls = ['http://www.open-mpi.org/software/ompi/v%(version_major_minor)s/downloads']
 
 patches = ['OpenMPI-1.6.5-vt_cupti_events.patch']
-patches += ['openmpi-mca-params.conf-1.6.4-local.patch']
+patches += ['openmpi-1.6-oarsh_wrapper.patch']
 
 configopts = '--with-threads=posix --enable-shared --enable-mpi-thread-multiple --with-openib '
 configopts += '--enable-mpirun-prefix-by-default '  # suppress failure modes in relation to mpirun path
@@ -23,8 +23,11 @@ else:
     # OK for OS_NAME == redhat, fedora, RHEL, SL, centos
     osdependencies = ['libibverbs-devel']
 
+
+installopts = ' && cp contribs/oarsh_with_ld_library_path.sh %(installdir)s/bin'
+
 sanity_check_paths = {
-    'files': ["bin/%s" % binfile for binfile in ["ompi_info", "opal_wrapper", "orterun"]] +
+    'files': ["bin/%s" % binfile for binfile in ["ompi_info", "opal_wrapper", "orterun", "oarsh_with_ld_library_path.sh"]] +
              ["lib/lib%s.%s" % (libfile, shared_lib_ext) for libfile in ["mpi_cxx", "mpi_f77" ,"mpi_f90",
                                                                          "mpi", "ompitrace", "open-pal",
                                                                          "open-rte", "vt", "vt-hyb",
