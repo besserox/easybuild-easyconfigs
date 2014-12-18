@@ -211,3 +211,79 @@ diff -ru OpenFOAM-2.3.0.ORIG/wmake/rules/linux64Icc/cOpt OpenFOAM-2.3.0/wmake/ru
  cDBUG       =
 -cOPT        = -O3 -no-prec-div
 +cOPT        = $(CFLAGS)
+diff -ru OpenFOAM-2.3.0.ORIG/wmake/rules/linuxGcc/c OpenFOAM-2.3.0/wmake/rules/linuxGcc/c
+--- OpenFOAM-2.3.0.ORIG/wmake/rules/linuxGcc/c	2011-08-03 11:42:23.000000000 +0200
++++ OpenFOAM-2.3.0/wmake/rules/linuxGcc/c	2014-11-15 20:53:14.355340082 +0100
+@@ -2,7 +2,7 @@
+ 
+ cWARN        = -Wall
+ 
+-cc          = gcc -m32
++cc          = $(MPICC)
+ 
+ include $(RULES)/c$(WM_COMPILE_OPTION)
+ 
+diff -ru OpenFOAM-2.3.0.ORIG/wmake/rules/linuxGcc/c++ OpenFOAM-2.3.0/wmake/rules/linuxGcc/c++
+--- OpenFOAM-2.3.0.ORIG/wmake/rules/linuxGcc/c++	2011-08-03 11:42:23.000000000 +0200
++++ OpenFOAM-2.3.0/wmake/rules/linuxGcc/c++	2014-11-15 20:53:24.731419757 +0100
+@@ -2,7 +2,7 @@
+ 
+ c++WARN     = -Wall -Wextra -Wno-unused-parameter -Wold-style-cast
+ 
+-CC          = g++ -m32
++CC          = $(MPICXX)
+ 
+ include $(RULES)/c++$(WM_COMPILE_OPTION)
+ 
+diff -ru OpenFOAM-2.3.0.ORIG/wmake/rules/linuxGcc/cOpt OpenFOAM-2.3.0/wmake/rules/linuxGcc/cOpt
+--- OpenFOAM-2.3.0.ORIG/wmake/rules/linuxGcc/cOpt	2011-08-03 11:42:23.000000000 +0200
++++ OpenFOAM-2.3.0/wmake/rules/linuxGcc/cOpt	2014-11-15 20:53:46.675588234 +0100
+@@ -1,2 +1,2 @@
+ cDBUG       =
+-cOPT        = -O3
++cOPT        = $(CFLAGS)
+diff -ru OpenFOAM-2.3.0.ORIG/wmake/rules/linuxGcc/c++Opt OpenFOAM-2.3.0/wmake/rules/linuxGcc/c++Opt
+--- OpenFOAM-2.3.0.ORIG/wmake/rules/linuxGcc/c++Opt	2011-08-03 11:42:23.000000000 +0200
++++ OpenFOAM-2.3.0/wmake/rules/linuxGcc/c++Opt	2014-11-15 20:53:36.983513827 +0100
+@@ -1,2 +1,2 @@
+ c++DBUG     =
+-c++OPT      = -O3
++c++OPT      = $(CXXFLAGS)
+diff -ru OpenFOAM-2.3.0.ORIG/wmake/rules/linuxIcc/c OpenFOAM-2.3.0/wmake/rules/linuxIcc/c
+--- OpenFOAM-2.3.0.ORIG/wmake/rules/linuxIcc/c	2011-08-03 11:42:23.000000000 +0200
++++ OpenFOAM-2.3.0/wmake/rules/linuxIcc/c	2014-11-15 20:54:01.131699199 +0100
+@@ -2,7 +2,7 @@
+ 
+ cWARN        =
+ 
+-cc          = icc -gcc-version=400
++cc          = $(MPICC)
+ 
+ include $(RULES)/c$(WM_COMPILE_OPTION)
+ 
+diff -ru OpenFOAM-2.3.0.ORIG/wmake/rules/linuxIcc/c++ OpenFOAM-2.3.0/wmake/rules/linuxIcc/c++
+--- OpenFOAM-2.3.0.ORIG/wmake/rules/linuxIcc/c++	2011-08-03 11:42:23.000000000 +0200
++++ OpenFOAM-2.3.0/wmake/rules/linuxIcc/c++	2014-11-15 20:54:12.711788079 +0100
+@@ -3,7 +3,7 @@
+ c++WARN     = -wd327,525,654,819,1125,1476,1505,1572
+ 
+ #CC          = icpc -gcc-version=400
+-CC          = icpc -std=c++0x
++CC          = $(MPICXX)
+ 
+ include $(RULES)/c++$(WM_COMPILE_OPTION)
+ 
+diff -ru OpenFOAM-2.3.0.ORIG/wmake/rules/linuxIcc/cOpt OpenFOAM-2.3.0/wmake/rules/linuxIcc/cOpt
+--- OpenFOAM-2.3.0.ORIG/wmake/rules/linuxIcc/cOpt	2011-08-03 11:42:23.000000000 +0200
++++ OpenFOAM-2.3.0/wmake/rules/linuxIcc/cOpt	2014-11-15 20:54:44.712033631 +0100
+@@ -1,2 +1,2 @@
+ cDBUG       =
+-cOPT        = -O3 -no-prec-div
++cOPT        = $(CFLAGS)
+diff -ru OpenFOAM-2.3.0.ORIG/wmake/rules/linuxIcc/c++Opt OpenFOAM-2.3.0/wmake/rules/linuxIcc/c++Opt
+--- OpenFOAM-2.3.0.ORIG/wmake/rules/linuxIcc/c++Opt	2011-08-03 11:42:23.000000000 +0200
++++ OpenFOAM-2.3.0/wmake/rules/linuxIcc/c++Opt	2014-11-15 20:54:33.663948862 +0100
+@@ -1,2 +1,2 @@
+ c++DBUG     =
+-c++OPT      = -xHost -O2 -no-prec-div
++c++OPT      = $(CXXFLAGS)
