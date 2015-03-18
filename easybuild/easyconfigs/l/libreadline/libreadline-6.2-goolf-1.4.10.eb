@@ -1,5 +1,3 @@
-easyblock = 'ConfigureMake'
-
 name = 'libreadline'
 version = '6.2'
 
@@ -16,6 +14,8 @@ sources = ['readline-%(version)s.tar.gz']
 source_urls = ['http://ftp.gnu.org/gnu/readline']
 
 dependencies = [('ncurses', '5.9')]
+
+preconfigopts = " LDFLAGS='-ltinfo' "
 
 sanity_check_paths = {
     'files' : ['lib/libreadline.a', 'lib/libhistory.a'] +
