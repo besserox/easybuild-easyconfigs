@@ -32,6 +32,6 @@ sources = [
 
 # licensepath
 import os
-license_file = os.path.join(os.getenv('HOME'), "licenses", "roguewave", "license.lic")
+license_file = os.path.join(os.getenv('HOME'), "licenses", "roguewave", "license_file.lic")
 
 moduleclass = 'debugger'
