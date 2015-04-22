@@ -1,5 +1,5 @@
 name = 'ABAQUS'
-version = '6.11.1'
+version = '6.14.2'
 
 homepage = 'http://www.simulia.com/products/abaqus_fea.html'
 description = "Finite Element Analysis software for modeling, visualization and best-in-class implicit and explicit dynamics FEA."
