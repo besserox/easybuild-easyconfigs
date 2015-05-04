@@ -28,10 +28,10 @@ dependencies = [
 
 
 modextravars = {
-    'CC'       : 'gcc',
-    'CXX'      : 'g++',
-    'I_MPI_CC' : 'gcc',
-    'I_MPI_CXX': 'g++',
+    'CC'       : 'icc',
+    'CXX'      : 'icpc',
+    'I_MPI_CC' : 'icc',
+    'I_MPI_CXX': 'icpc',
 }   
 
 moduleclass = 'toolchain'
