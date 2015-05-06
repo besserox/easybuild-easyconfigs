@@ -21,4 +21,7 @@ patches = ['cleanup-OpenFOAM-%s.patch' % version,
 
 builddependencies = [('flex', '2.5.38')]
 
+# some system compilers (Ubuntu, Debian, ...) force the -as-needed option which causes link error with OpenFOAM
+prebuildopts = 'export CFLAGS="-Xlinker --no-as-needed $CFLAGS" CXXFLAGS="-Xlinker --no-as-needed $CXXFLAGS" && '
+
 moduleclass = 'cae'
