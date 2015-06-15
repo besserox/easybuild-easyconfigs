@@ -1,3 +1,6 @@
+# Author: Maxime Schmitt <maxime.schmitt@telecom-bretagne.eu>, Université du Luxembourg
+#
+
 easyblock = 'ConfigureMake'
 
 name = 'libpng'
