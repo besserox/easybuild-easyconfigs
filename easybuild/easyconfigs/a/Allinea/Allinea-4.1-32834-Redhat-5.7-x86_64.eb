@@ -10,7 +10,7 @@ toolchain = {'name': 'dummy', 'version': 'dummy'}
 source_urls = ['http://content.allinea.com/downloads/']
 sources = ['%(namelower)s-tools-%(version)s.tar']
 
-# license_file file
+# license file
 import os
 license_file = os.path.join('/opt', 'apps', "licenses", "allinea", "license.lic")
 

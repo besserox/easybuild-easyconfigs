@@ -23,7 +23,7 @@ dontcreateinstalldir = 'True'
 
 interfaces = True
 
-# license_file file
+# license file
 import os
 license_file = os.path.join('/opt', 'apps', "licenses", "intel", "license.lic")
 

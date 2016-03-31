@@ -19,7 +19,7 @@ patches = ['tbb-4.0_productsdb.patch']
 
 dontcreateinstalldir = 'True'
 
-# license_file file
+# license file
 import os
 license_file = os.path.join('/opt', 'apps', "licenses", "intel", "license.lic")
 

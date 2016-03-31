@@ -11,7 +11,7 @@ toolchain = {'name': 'ictce', 'version': '5.5.0'}
 
 sources = [SOURCELOWER_TGZ]
 
-patches = ['ecore-license_file-var.patch']
+patches = ['ecore-license-var.patch']
 
 dependencies = [('OpenMPI', '1.4.5')]
 
