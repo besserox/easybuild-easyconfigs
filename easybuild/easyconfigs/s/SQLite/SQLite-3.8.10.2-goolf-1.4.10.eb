@@ -26,14 +26,14 @@ version_str = '%(version_major)s' + ''.join('%02d' % int(x) for x in version.spl
 sources = ['sqlite-autoconf-%s.tar.gz' % version_str]
 
 dependencies = [
-    ('libreadline', '6.2'),
-    ('Tcl', '8.5.12'),
+    ('libreadline', '6.3'),
+    ('Tcl', '8.6.4'),
 ]
 
 parallel = 1
 
 sanity_check_paths = {
-    'files': ['bin/sqlite3', 'include/sqlite3ext.h', 'include/sqlite3.h', 'lib/libsqlite3.a', 'lib/libsqlite3.so'],
+    'files': ['bin/sqlite3', 'include/sqlite3ext.h', 'include/sqlite3.h', 'lib/libsqlite3.a', 'lib/libsqlite3.%s' % SHLIB_EXT],
     'dirs': ['lib/pkgconfig'],
 }
 

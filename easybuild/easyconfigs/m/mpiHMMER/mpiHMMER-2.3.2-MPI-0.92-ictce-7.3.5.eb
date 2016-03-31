@@ -1,0 +1,29 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2015 Uni.Lu
+# Authors::   Valentin Plugaru <Valentin.Plugaru@uni.lu>
+# License::   MIT
+#
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'mpiHMMER'
+version = '2.3.2-MPI-0.92'
+
+homepage = 'http://www.mpihmmer.org'
+description = """mpiHMMER: Open Source implementation of the HMMER protein sequence analysis suite. The main search algorithms in this suite, hmmsearch and hmmpfam, have been modified to use MPI in order to provide higher throughput HMMER searches on modern computational clusters. The key algorithm in hmmsearch is the Viterbi algorithm implemented as a contained double nested loop which can be vectorized with no data accuracy penalties."""
+
+toolchain = {'name': 'ictce', 'version': '7.3.5'}
+toolchainopts = {'usempi': True}
+
+sources = ['hmmer-2.3.2-MPI-0.92.tar.gz']
+source_urls = ['http://www.mpihmmer.org/files/hmmer-2.3.2-MPI-0.92.tar.gz']
+
+sanity_check_paths = {
+    'files': ['bin/hmmalign', 'bin/hmmbuild', 'bin/hmmcalibrate', 'bin/hmmconvert', 'bin/hmmemit', 'bin/hmmfetch', 'bin/hmmindex', 'bin/hmmpfam', 'bin/hmmsearch'],
+    'dirs': [],
+}
+
+moduleclass = 'bio'
