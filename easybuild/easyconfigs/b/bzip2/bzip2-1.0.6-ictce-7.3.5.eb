@@ -1,6 +1,3 @@
-# Author: Maxime Schmitt <maxime.schmitt@telecom-bretagne.eu>, Université du Luxembourg
-#
-
 name = 'bzip2'
 version = '1.0.6'
 
