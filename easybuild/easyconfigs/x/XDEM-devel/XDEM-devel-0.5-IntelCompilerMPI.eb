@@ -1,0 +1,38 @@
+easyblock = "Toolchain"
+
+name = 'XDEM-devel'
+version = '0.5'
+versionsuffix = '-IntelCompilerMPI'
+
+homepage = 'http://luxdem.uni.lu/'
+description = """Module bundle that contains all the dependencies required to compile DPM"""
+
+toolchain = {'name': 'dummy', 'version': 'dummy'}
+
+compiler_toolchain = ('icc',   '2015.3.187')
+mpi_toolchain      = ('impi',  '5.0.3.048-iccifort-2015.3.187'     )
+full_toolchain     = ('ictce', '7.3.5'         )
+
+
+
+dependencies = [
+    compiler_toolchain,
+    mpi_toolchain,
+    ('CMake'          , '3.4.3'        ,                                '', full_toolchain),
+    ('HDF5'           , '1.8.15-patch1',                         '-serial', full_toolchain),
+    ('Eigen'          , '3.2.5'        ,                                '', full_toolchain),
+    ('Boost'          , '1.58.0'       ,                                '', full_toolchain),
+    ('CPPLapack'      , '2015.05.11'),
+    ('OpenFOAM-Extend', '3.2'          , '-XDEMCoupling-20160401-f3f42f85', full_toolchain),
+]
+
+
+
+modextravars = {
+    'CC'       : 'icc',
+    'CXX'      : 'icpc',
+    'I_MPI_CC' : 'icc',
+    'I_MPI_CXX': 'icpc',
+}   
+
+moduleclass = 'toolchain'
