@@ -1,0 +1,11 @@
+easyblock = "Toolchain"
+
+name = 'OpenMPI'
+version = 'system'
+
+homepage = 'http://www.open-mpi.org/'
+description = """The Open MPI Project is an open source MPI-2 implementation."""
+
+toolchain = {'name': 'dummy', 'version': 'dummy'}
+
+moduleclass = 'mpi'
