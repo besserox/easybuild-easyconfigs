@@ -1,3 +1,5 @@
+easyblock = 'ConfigureMake'
+
 name = 'libreadline'
 version = '6.2'
 
@@ -16,7 +18,7 @@ source_urls = ['http://ftp.gnu.org/gnu/readline']
 dependencies = [('ncurses', '5.9')]
 
 # for the termcap symbols, use EB ncurses
-preconfigopts = "LDFLAGS='-lncurses -ltinfo'"
+preconfigopts = "env LDFLAGS='-lncurses -ltinfo'"
 
 sanity_check_paths = {
     'files': ['lib/libreadline.a', 'lib/libhistory.a'] +
