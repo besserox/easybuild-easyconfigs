@@ -1,0 +1,58 @@
+easyblock = 'Bundle'
+
+name = 'R-bundle-XDEM'
+version = '20160525'
+
+homepage = 'http://www.r-project.org/'
+description = """R is a free software environment for statistical computing and graphics."""
+
+toolchain = {'name': 'foss', 'version': '2016a'}
+
+# these are extensions for R
+exts_defaultclass = 'RPackage'
+exts_filter = ("R -q --no-save", "library(%(ext_name)s)")
+
+rver = '3.2.3'
+versionsuffix = '-R-%s' % rver
+dependencies = [
+    ('R', rver, '-bare'),
+    ('HDF5', '1.8.16', '-serial')
+]
+
+name_tmpl = '%(name)s_%(version)s.tar.gz'
+ext_options = {
+    'source_urls': [
+        'http://cran.r-project.org/src/contrib/Archive/%(name)s',  # package archive
+        'http://cran.r-project.org/src/contrib/',  # current version of packages
+        'http://cran.freestatistics.org/src/contrib',  # mirror alternative for current packages
+    ],
+    'source_tmpl': name_tmpl,
+}
+bioconductor_options = {
+    'source_urls': [
+        'http://www.bioconductor.org/packages/3.2/bioc/src/contrib/',
+        'http://www.bioconductor.org/packages/3.2/data/annotation/src/contrib/',
+        'http://www.bioconductor.org/packages/3.2/data/experiment/src/contrib/',
+    ],
+    'source_tmpl': name_tmpl,
+}
+
+# CRAN packages on which these Bioconductor packages depend are available in R module on which this depends
+# !! order of packages is important !!
+exts_list = [
+    ('h5r', '1.4.7', ext_options),
+    ('bit', '1.1-12', ext_options),
+    ('bit64', '0.9-5', ext_options),
+    ('zlibbioc', '1.16.0', bioconductor_options),
+    ('rhdf5', '2.14.0', bioconductor_options),
+]
+
+modextrapaths = {'R_LIBS': ''}
+
+packages = ['h5r', 'bit', 'bit64', 'zlibbioc', 'rhdf5']
+sanity_check_paths = {
+    'files': [ '%s/libs/%s.%s' % (p,p,SHLIB_EXT) for p in packages ],
+    'dirs': [],
+}
+
+moduleclass = 'data'
