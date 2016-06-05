@@ -25,7 +25,7 @@ skipsteps = ['configure']
 buildopts = 'CC="$CC" CFLAGS="-DPRNTlevel=0 $CFLAGS" NOOPTS="-fPIC" SuperLUroot="%(builddir)s" SUPERLULIB="%(builddir)s/libsuperlu.a" BLASLIB="$LIBBLAS_MT"'
 maxparallel = 1
 
-# 'make install' is doing nothing but we also need to copy the headers and library manually
+# 'make install' is doing nothing so we need to copy the headers and library manually
 installopts  = ' && mkdir -p "%(installdir)s/lib" "%(installdir)s/include"'
 installopts += ' && cp -v %(builddir)s/SuperLU_4.3/SRC/*.h "%(installdir)s/include"'
 installopts += ' && cp -v %(builddir)s/libsuperlu.a "%(installdir)s/lib"'
