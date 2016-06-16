@@ -11,6 +11,6 @@ sources = ['inspector_xe_%(version)s.tar.gz']
 
 dontcreateinstalldir = 'True'
 
-license_file = HOME + '/licenses/intel/license.lic'
+license_file = '/opt/apps/licenses/intel/license.lic'
 
 moduleclass = 'tools'
