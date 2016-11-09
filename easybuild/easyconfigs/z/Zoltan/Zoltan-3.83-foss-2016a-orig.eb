@@ -1,0 +1,44 @@
+easyblock = 'ConfigureMake'
+name = 'Zoltan'
+version = '3.83'
+versionsuffix = '-orig'
+
+homepage = 'http://www.cs.sandia.gov/Zoltan/Zoltan.html'
+description = """Zoltan: Parallel Partitioning, Load Balancing and Data-Management Services"""
+
+toolchain = {'name': 'foss', 'version': '2016a'}
+toolchainopts = {'usempi': True, 'pic': True}
+
+source_urls = ['http://www.cs.sandia.gov/~kddevin/Zoltan_Distributions/']
+sources = ['%(namelower)s_distrib_v%(version)s.tar.gz']
+
+dependencies = [
+    ('SCOTCH', '6.0.4'),
+    ('ParMETIS', '4.0.3'),
+]
+
+
+# Skip configure step, instead create the configure line manually to build in a separate directory,
+skipsteps = ['configure']
+prebuildopts = "mkdir build && cd build && "
+# Use MPI compilers
+prebuildopts += "CC=mpicc CXX=mpicxx "
+prebuildopts += " ../configure --prefix=%(installdir)s "
+# Enable MPI support
+prebuildopts += "--enable-mpi "
+# Enable ParMetis 
+prebuildopts += '--with-parmetis --with-parmetis-incdir="$EBROOTPARMETIS/include" --with-parmetis-libdir="$EBROOTPARMETIS/lib" '
+# Enable SCOTCH support 
+prebuildopts += '--with-scotch --with-scotch-incdir="$EBROOTSCOTCH/include" --with-scotch-libdir="$EBROOTSCOTCH/lib"'
+prebuildopts += '&& '
+
+# Run install from the build directory
+preinstallopts = "cd build && "
+
+
+sanity_check_paths = {
+    'files': ["include/zoltan.h", "lib/libzoltan.a"],
+    'dirs': []
+}
+
+moduleclass = 'numlib'
