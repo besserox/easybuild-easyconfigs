@@ -1,0 +1,26 @@
+easyblock = "Toolchain"
+
+name = 'XDEM-all'
+version = '1.3'
+versionsuffix = '-IntelCompilerMPI'
+
+homepage = 'http://luxdem.uni.lu/'
+description = """Module bundle that contains all the dependencies required to compile XDEM"""
+
+toolchain = {'name': 'dummy', 'version': 'dummy'}
+
+full_toolchain     = ('intel', '2016a' )
+
+dependencies = [
+    ('XDEM-devel'     , version        ,                       versionsuffix),
+    ('Python'         , '2.7.11'       ,                                  '', full_toolchain),
+    ('h5py'           , '2.5.0'        , '-Python-2.7.11-HDF5-1.8.16-serial', full_toolchain),
+    ('ParaView'       , '4.4.0'        ,                                  '', full_toolchain),
+    ('R'              , '3.2.3'        ,                             '-bare', full_toolchain),
+    ('R-bundle-XDEM'  , '20160525'     ,                          '-R-3.2.3', full_toolchain),
+    ('GDB'            , '7.11'         ,                    '-Python-2.7.11', full_toolchain),
+    ('Valgrind'       , '3.11.0'       ,                                  '', full_toolchain),
+]
+
+
+moduleclass = 'toolchain'

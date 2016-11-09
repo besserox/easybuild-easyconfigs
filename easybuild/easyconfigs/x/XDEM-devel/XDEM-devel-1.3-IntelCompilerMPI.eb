@@ -1,0 +1,49 @@
+easyblock = "Toolchain"
+
+name = 'XDEM-devel'
+version = '1.3'
+versionsuffix = '-IntelCompilerMPI'
+
+homepage = 'http://luxdem.uni.lu/'
+description = """Module bundle that contains all the dependencies required to compile XDEM"""
+
+toolchain = {'name': 'dummy', 'version': 'dummy'}
+
+compiler_toolchain = ('icc',   '2016.1.150-GCC-4.9.3-2.25' )
+mpi_toolchain      = ('impi',  '5.1.2.150-iccifort-2016.1.150-GCC-4.9.3-2.25' )
+full_toolchain     = ('intel', '2016a' )
+
+
+
+dependencies = [
+    compiler_toolchain,
+    mpi_toolchain,
+    ('CMake'          , '3.5.2'        ,                                '', full_toolchain),
+    ('HDF5'           , '1.8.16'       ,                         '-serial', full_toolchain),
+    ('Eigen'          , '3.2.8'        ,                                '', full_toolchain),
+    ('Boost'          , '1.60.0'       ,                  '-Python-2.7.11', full_toolchain),
+    ('METIS'          , '5.1.0'        ,                                '', full_toolchain),
+    ('Zoltan'         , '3.83'         ,                                '', full_toolchain),
+    ('SuperLU'        , '4.3'          ,                                '', full_toolchain),
+    ('SuiteSparse'    , '4.5.2'        ,                    '-METIS-5.1.0', full_toolchain),
+    ('CPPLapack'      , '2015.05.11'),
+    ('Voro++'         , '0.4.6'        ,                                '', full_toolchain),
+    ('OpenFOAM-Extend', '3.2'          , '-XDEMCoupling-20161110-9855ee1c', full_toolchain),
+    ('Qt'             , '4.8.7'        ,                                '', full_toolchain),
+    ('Bullet'         , '2.83.7'       ,                                '', full_toolchain),
+]
+# TODO missing
+# - Diffpack
+# - Matlab runtime
+
+
+modextravars = {
+    'CC'         : 'icc',
+    'CXX'        : 'icpc',
+    'I_MPI_CC'   : 'icc',
+    'I_MPI_CXX'  : 'icpc',
+    'BLA_VENDOR' : 'Intel10_64lp',
+    'MKL_NUM_THREADS' : '1',
+}   
+
+moduleclass = 'toolchain'
