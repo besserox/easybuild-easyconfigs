@@ -1,5 +1,5 @@
---- /opal/etc/openmpi-mca-params.conf.orig  2015-06-05 16:21:25.535727000 +0200
-+++ /opal/etc/openmpi-mca-params.conf 2015-06-12 14:35:38.436290000 +0200
+--- opal/etc/openmpi-mca-params.conf.orig  2015-06-05 16:21:25.535727000 +0200
++++ opal/etc/openmpi-mca-params.conf 2015-06-12 14:35:38.436290000 +0200
 @@ -56,3 +56,8 @@
  
  # See "ompi_info --param all all" for a full listing of Open MPI MCA
