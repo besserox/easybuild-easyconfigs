@@ -31,3 +31,5 @@ postinstallcmds = [
 ]
 
 moduleclass = 'mpi'
+
+modextravars = {"I_MPI_MPD_RSH": "oarsh"}

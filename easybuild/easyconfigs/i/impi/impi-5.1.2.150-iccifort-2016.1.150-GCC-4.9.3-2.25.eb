@@ -32,3 +32,5 @@ postinstallcmds = [
     'ln -s %(installdir)s/lib64/libmpi.so %(installdir)s/lib64/libmpl.so',
     'ln -s %(installdir)s/lib64/libmpi.so %(installdir)s/lib64/libopa.so'
 ]
+
+modextravars = {"I_MPI_MPD_RSH": "oarsh"}
