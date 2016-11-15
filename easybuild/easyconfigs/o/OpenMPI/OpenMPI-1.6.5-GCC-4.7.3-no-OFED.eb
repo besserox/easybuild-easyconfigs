@@ -14,7 +14,7 @@ source_urls = ['http://www.open-mpi.org/software/ompi/v%(version_major_minor)s/d
 
 patches = [
     'OpenMPI-1.6.5-vt_cupti_events.patch',
-    'openmpi-mca-params.conf-pre-1.8.6-UNILU.patch',
+    'openmpi-mca-params.conf-pre-1.7-UNILU.patch',
 ]
 
 configopts = '--with-threads=posix --enable-shared --enable-mpi-thread-multiple --without-openib '
