@@ -1,0 +1,38 @@
+easyblock = 'CMakeMake'
+name = 'Zoltan'
+version = '3.83'
+
+homepage = 'http://www.cs.sandia.gov/Zoltan/Zoltan.html'
+description = """Zoltan: Parallel Partitioning, Load Balancing and Data-Management Services"""
+
+toolchain = {'name': 'intel', 'version': '2017a'}
+toolchainopts = {'usempi': True, 'pic': True}
+
+source_urls = ['https://trilinos.org/oldsite/download/files/']
+sources = ['trilinos-12.8.1-Source.tar.gz']
+
+dependencies = [
+    ('SCOTCH', '6.0.4'),
+    ('ParMETIS', '4.0.3'),
+]
+
+builddependencies = [('CMake', '3.8.1')]
+
+separate_build_dir = True
+
+# build shared libraries
+configopts = "-DBUILD_SHARED_LIBS=ON"
+# Only compile Zoltan package from Trilinos
+configopts += "-DTrilinos_ENABLE_ALL_PACKAGES=OFF -DTrilinos_ENABLE_Zoltan=ON "
+# Enable MPI support
+configopts += "-DTPL_ENABLE_MPI=ON "
+# Enable ParMetis and SCOTCH support
+configopts += "-DZoltan_ENABLE_ParMETIS=ON -DZoltan_ENABLE_Scotch=ON "
+
+sanity_check_paths = {
+    'files': ["include/zoltan.h", "lib/libzoltan.%s" % SHLIB_EXT],
+    'dirs': []
+}
+
+moduleclass = 'numlib'
+
