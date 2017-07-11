@@ -21,7 +21,7 @@ builddependencies = [('CMake', '3.5.2')]
 separate_build_dir = True
 
 # build shared libraries
-configopts = "-DBUILD_SHARED_LIBS=ON"
+configopts = "-DBUILD_SHARED_LIBS=ON "
 # Only compile Zoltan package from Trilinos
 configopts += "-DTrilinos_ENABLE_ALL_PACKAGES=OFF -DTrilinos_ENABLE_Zoltan=ON "
 # Enable MPI support
